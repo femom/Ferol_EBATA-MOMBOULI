@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/*
+  Tokens de design du portfolio.
+  Palette dérivée des photos de Ferol : fond blanc "smoke",
+  bleu du col de chemise, bordeaux du pull.
+  Tailwind v4 génère automatiquement les utilitaires (bg-smoke, text-bordeaux, etc.)
+  à partir de ces variables --color-*.
+*/
+@theme {
+  --color-smoke: #f4f3f0;
+  --color-smoke-dim: #ebe9e4;
+  --color-surface: #ffffff;
+  --color-ink: #201f1d;
+  --color-ink-soft: #55534e;
+  --color-blue: #2f5d82;
+  --color-blue-soft: #6f93ac;
+  --color-bordeaux: #7a1f3f;
+  --color-bordeaux-soft: #a85272;
+
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/*
+  Mode sombre : on redéfinit les mêmes variables dans le scope .dark.
+  Comme tous les composants utilisent bg-smoke / text-ink / text-bordeaux etc.
+  (qui compilent vers var(--color-*)), rien d'autre à changer : la bascule
+  de classe sur <html> suffit à retourner toute la palette.
+*/
+.dark {
+  --color-smoke: #17161a;
+  --color-smoke-dim: #201f24;
+  --color-surface: #232228;
+  --color-ink: #f2f0ec;
+  --color-ink-soft: #b7b3ac;
+  --color-blue: #7fa6c4;
+  --color-blue-soft: #4d7799;
+  --color-bordeaux: #e07a9c;
+  --color-bordeaux-soft: #b8496d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-smoke);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+html:not(.dark) {
+  color-scheme: light;
+}
+
+/* Focus clavier visible et cohérent avec la charte (accessibilité) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Respecte les préférences d'accessibilité : coupe les animations si demandé */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Fin "liquid glass" léger pour la nav : verre dépoli discret, pas de glassmorphism appuyé */
+.glass-nav {
+  background-color: color-mix(in srgb, var(--color-smoke) 72%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
+}

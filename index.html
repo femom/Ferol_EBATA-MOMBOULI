@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/hero.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ferol Ebata-Mombouli — Développeur Full-Stack</title>
+    <meta
+      name="description"
+      content="Portfolio de Ferol Ebata-Mombouli, développeur Full-Stack orienté backend."
+    />
+    <meta name="theme-color" content="#7a1f3f" />
+    <script>
+      // Applique le thème avant le premier rendu pour éviter un flash clair/sombre
+      (function () {
+        try {
+          var stored = localStorage.getItem("portfolio-theme");
+          var dark = stored ? stored === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Open Graph / partage sur réseaux sociaux (LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ferol Ebata-Mombouli — Développeur Full-Stack" />
+    <meta
+      property="og:description"
+      content="Développeur Full-Stack orienté backend, étudiant en Génie Informatique. Découvrez mes projets, mon parcours et mes compétences."
+    />
+    <meta property="og:image" content="/images/hero.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ferol Ebata-Mombouli — Développeur Full-Stack" />
+    <meta name="twitter:description" content="Portfolio de Ferol Ebata-Mombouli, développeur Full-Stack orienté backend." />
+    <meta name="twitter:image" content="/images/hero.png" />
+    <!-- Polices : Fraunces (titres, élégante/éditoriale) + Inter (texte courant) + JetBrains Mono (métadonnées techniques) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
