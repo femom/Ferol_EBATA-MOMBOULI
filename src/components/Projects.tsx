@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import SectionTitle from "./SectionTitle";
-import ProjectMockup from "./ProjectMockup";
 import { translations } from "../i18n/translations";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -23,9 +22,13 @@ export default function Projects() {
             transition={{ duration: 0.4, delay: i * 0.06 }}
             className="group overflow-hidden rounded-2xl border border-ink/10 bg-surface/70 transition-colors hover:border-bordeaux/40"
           >
-            {/* Mockup abstrait, en attendant de vraies captures */}
-            <div className="aspect-[16/9] w-full border-b border-ink/10 bg-smoke p-4">
-              <ProjectMockup variant={project.variant} />
+            <div className="aspect-[16/9] w-full border-b border-ink/10 bg-smoke">
+              <img
+                src={project.image}
+                alt={`${t.preview[lang]} ${project.name}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             <div className="flex flex-col justify-between p-6">

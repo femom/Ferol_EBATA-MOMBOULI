@@ -3,6 +3,7 @@ import {
   SiJavascript,
   SiReact,
   SiNodedotjs,
+  SiExpress,
   SiTailwindcss,
   SiGit,
   SiGithub,
@@ -10,7 +11,11 @@ import {
   SiHtml5,
   SiCss,
   SiTypescript,
+  SiVite,
+  SiJsonwebtokens,
+  SiPwa,
 } from "react-icons/si";
+import { Code2 } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import { translations } from "../i18n/translations";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -20,10 +25,15 @@ const skills = [
   { icon: SiTypescript, label: "TypeScript" },
   { icon: SiReact, label: "React" },
   { icon: SiNodedotjs, label: "Node.js" },
+  { icon: SiExpress, label: "Express" },
+  { icon: Code2, label: "API REST" },
   { icon: SiTailwindcss, label: "Tailwind CSS" },
+  { icon: SiVite, label: "Vite" },
+  { icon: SiJsonwebtokens, label: "JWT" },
   { icon: SiHtml5, label: "HTML5" },
   { icon: SiCss, label: "CSS3" },
   { icon: SiMysql, label: "SQL" },
+  { icon: SiPwa, label: "PWA" },
   { icon: SiGit, label: "Git" },
   { icon: SiGithub, label: "GitHub" },
 ];
